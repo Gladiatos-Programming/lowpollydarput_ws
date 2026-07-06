@@ -43,12 +43,6 @@ source install/setup.bash
 
 ## Usage
 
-### Display robot in RViz (no simulation)
-
-```bash
-ros2 launch darput_description display.launch.py
-```
-
 ### Launch full simulation in Gazebo
 
 ```bash
