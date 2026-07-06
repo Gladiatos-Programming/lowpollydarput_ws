@@ -60,6 +60,10 @@ ros2 run darput_description UI_Interface
 ---
 
 ## UI_Interface.py — Command Reference
+### Before you run make sure to activate PinnochioIK with
+```bash
+ros2 run darput_description PinnochioIK
+```
 
 The UI is a PyQt5 launcher window with buttons, sliders, and a log panel. It launches ROS 2 nodes via shell commands and publishes slider values to ROS topics.
 
