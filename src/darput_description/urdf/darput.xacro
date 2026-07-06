@@ -1,0 +1,947 @@
+<?xml version="1.0" ?>
+<robot name="darput" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find darput_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find darput_description)/urdf/darput.trans" />
+<xacro:include filename="$(find darput_description)/urdf/darput.gazebo" />
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.001"/>
+    <inertia ixx="1e-06" ixy="0" ixz="0" iyy="1e-06" iyz="0" izz="1e-06"/>
+  </inertial>
+  <visual>
+    <geometry>
+       <box size="0.01 0.01 0.01"/>
+    </geometry>
+    <!-- Tag color harus MASUK ke dalam tag material -->
+    <material name="red_transparent">
+        <color rgba="1 0 0 0.5"/>
+    </material>
+  </visual>
+</link>
+
+<link name="base_center">
+  <inertial>
+    <origin xyz="0.10713591161425433 0.0683334443476024 0.3420264501037035" rpy="0 0 0"/>
+    <mass value="0.6347105506232803"/>
+    <inertia ixx="0.0019" iyy="0.001956" izz="0.001156" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Konektor_Lengan_v3_1">
+  <inertial>
+    <origin xyz="0.013301079694455792 -1.157954630168212e-07 -0.0009342319832492674" rpy="0 0 0"/>
+    <mass value="0.013242146871248835"/>
+    <inertia ixx="5e-06" iyy="3e-06" izz="7e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.163136 -0.044836 -0.4041" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Konektor_Lengan_v3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.163136 -0.044836 -0.4041" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Konektor_Lengan_v3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Lengan_v2_1">
+  <inertial>
+    <origin xyz="-8.838574647174191e-08 0.02241768128190586 -0.01790269406119893" rpy="0 0 0"/>
+    <mass value="0.09036794389888728"/>
+    <inertia ixx="4.2e-05" iyy="4.2e-05" izz="2.3e-05" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.191536 -0.022336 -0.3881" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Lengan_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.191536 -0.022336 -0.3881" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Lengan_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Tangan_v2_1">
+  <inertial>
+    <origin xyz="-0.02240008838574653 0.004037508735633827 -0.04018756249798844" rpy="0 0 0"/>
+    <mass value="0.18709544013838483"/>
+    <inertia ixx="0.000184" iyy="0.000172" izz="6.2e-05" ixy="0.0" iyz="2.1e-05" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.214036 -0.028836 -0.32355" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Tangan_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <!-- <collision>
+    <origin xyz="-0.214036 -0.028836 -0.32355" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Tangan_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision> -->
+</link>
+
+<link name="Capit_v2__1__1">
+  <inertial>
+    <origin xyz="-0.022495776965903047 -0.009915774061383472 -0.02380897438456503" rpy="0 0 0"/>
+    <mass value="0.02281624421253465"/>
+    <inertia ixx="2.3e-05" iyy="2.5e-05" izz="9e-06" ixy="-0.0" iyz="6e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.214036 -0.020836 -0.26075" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Capit_v2__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="green"/>
+  </visual>
+  <!-- <collision>
+    <origin xyz="-0.214036 -0.020836 -0.26075" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Capit_v2__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision> -->
+</link>
+
+<link name="Konektor_Lengan_v3__1__1">
+  <inertial>
+    <origin xyz="-0.013301256465947167 -1.1579546348172709e-07 -0.0009342319832491564" rpy="0 0 0"/>
+    <mass value="0.013242146871248835"/>
+    <inertia ixx="5e-06" iyy="3e-06" izz="7e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.051136 -0.044836 -0.4041" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Konektor_Lengan_v3__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.051136 -0.044836 -0.4041" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Konektor_Lengan_v3__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Lengan_v2__1__1">
+  <inertial>
+    <origin xyz="-8.83857448896741e-08 0.022417681281905244 -0.017902694061199043" rpy="0 0 0"/>
+    <mass value="0.09036794389888728"/>
+    <inertia ixx="4.2e-05" iyy="4.2e-05" izz="2.3e-05" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.022736 -0.022336 -0.3881" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Lengan_v2__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.022736 -0.022336 -0.3881" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Lengan_v2__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Tangan_v2__1__1">
+  <inertial>
+    <origin xyz="0.022399911614254978 0.004037508735633175 -0.040187562497988216" rpy="0 0 0"/>
+    <mass value="0.18709544013838483"/>
+    <inertia ixx="0.000184" iyy="0.000172" izz="6.2e-05" ixy="0.0" iyz="2.1e-05" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.000236 -0.028836 -0.32355" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Tangan_v2__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <!-- <collision>
+    <origin xyz="-0.000236 -0.028836 -0.32355" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Tangan_v2__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision> -->
+</link>
+
+<link name="Capit_v2_1">
+  <inertial>
+    <origin xyz="0.022504223034098027 -0.009915774061383852 -0.023808974384565057" rpy="0 0 0"/>
+    <mass value="0.02281624421253465"/>
+    <inertia ixx="2.3e-05" iyy="2.5e-05" izz="9e-06" ixy="-0.0" iyz="6e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.000236 -0.020836 -0.26075" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Capit_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="green"/>
+  </visual>
+  <!-- <collision>
+    <origin xyz="-0.000236 -0.020836 -0.26075" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Capit_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision> -->
+</link>
+
+<link name="Konektor_Paha_v2_1">
+  <inertial>
+    <origin xyz="-8.838574565295243e-08 0.0027667016018834423 -0.009072645621017839" rpy="0 0 0"/>
+    <mass value="0.014335139284799478"/>
+    <inertia ixx="8e-06" iyy="3e-06" izz="7e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.070136 -0.051336 -0.25965" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Konektor_Paha_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.070136 -0.051336 -0.25965" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Konektor_Paha_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Paha_v6_1">
+  <inertial>
+    <origin xyz="-8.838574687419776e-08 -0.005642799790289199 -0.013337752113080414" rpy="0 0 0"/>
+    <mass value="0.16503913633833509"/>
+    <inertia ixx="0.000138" iyy="5.5e-05" izz="0.000123" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.070136 -0.077336 -0.2256" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Paha_v6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.070136 -0.077336 -0.2256" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Paha_v6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Lutut_v2_1">
+  <inertial>
+    <origin xyz="0.02249991161425144 -1.1579546139312002e-07 -0.07636680828566153" rpy="0 0 0"/>
+    <mass value="0.10019768041144636"/>
+    <inertia ixx="5.4e-05" iyy="6e-05" izz="2.5e-05" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.047736 -0.056836 -0.2256" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Lutut_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.047736 -0.056836 -0.2256" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Lutut_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Betis_v2__1__1">
+  <inertial>
+    <origin xyz="0.022499911614249864 -0.008202839815640878 -0.03634479273317805" rpy="0 0 0"/>
+    <mass value="0.03319461293469308"/>
+    <inertia ixx="2.7e-05" iyy="3.6e-05" izz="1.7e-05" ixy="0.0" iyz="4e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.047836 -0.056836 -0.1301" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Betis_v2__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.047836 -0.056836 -0.1301" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Betis_v2__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Mata_Kaki_v2__1__1">
+  <inertial>
+    <origin xyz="0.022399911614249264 0.014857427032682169 0.013338327265798942" rpy="0 0 0"/>
+    <mass value="0.1651150849038537"/>
+    <inertia ixx="0.000138" iyy="5.5e-05" izz="0.000123" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.047836 -0.054296 -0.038416" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Mata_Kaki_v2__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.047836 -0.054296 -0.038416" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Mata_Kaki_v2__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Kaki_Kanan_v2_1">
+  <inertial>
+    <origin xyz="-0.006070235069133734 -0.023961077597018023 -0.031909235491611954" rpy="0 0 0"/>
+    <mass value="0.03856063490043193"/>
+    <inertia ixx="2.9e-05" iyy="1.2e-05" izz="3.4e-05" ixy="-0.0" iyz="0.0" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.00607 -0.02396 -0.036416" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.062 0.092 0.0025"/>
+      </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision name="Kaki_Kanan_v2_1">
+    <origin xyz="-0.00607 -0.02396 -0.036416" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.062 0.092 0.0025"/>
+      </geometry>
+  </collision>
+</link>
+
+<link name="Konektor_Paha_v2__1__1">
+  <inertial>
+    <origin xyz="-8.838574561131907e-08 0.0027667016018837753 -0.009072645621017561" rpy="0 0 0"/>
+    <mass value="0.014335139284799478"/>
+    <inertia ixx="8e-06" iyy="3e-06" izz="7e-06" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.144136 -0.051336 -0.25965" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Konektor_Paha_v2__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.144136 -0.051336 -0.25965" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Konektor_Paha_v2__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Paha_v6__1__1">
+  <inertial>
+    <origin xyz="-8.83857458056081e-08 -0.005642799790288866 -0.013337752113080387" rpy="0 0 0"/>
+    <mass value="0.16503913633833509"/>
+    <inertia ixx="0.000138" iyy="5.5e-05" izz="0.000123" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.144136 -0.077336 -0.2256" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Paha_v6__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.144136 -0.077336 -0.2256" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Paha_v6__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Lutut_v2__1__1">
+  <inertial>
+    <origin xyz="-0.022500088385745742 -1.157954610739309e-07 -0.07636680828566136" rpy="0 0 0"/>
+    <mass value="0.10019768041144636"/>
+    <inertia ixx="5.4e-05" iyy="6e-05" izz="2.5e-05" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.166536 -0.056836 -0.2256" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Lutut_v2__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.166536 -0.056836 -0.2256" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Lutut_v2__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Betis_v2_1">
+  <inertial>
+    <origin xyz="-0.022500088385745992 -0.008202839815640545 -0.036344792733177755" rpy="0 0 0"/>
+    <mass value="0.03319461293469308"/>
+    <inertia ixx="2.7e-05" iyy="3.6e-05" izz="1.7e-05" ixy="0.0" iyz="4e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.166436 -0.056836 -0.1301" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Betis_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.166436 -0.056836 -0.1301" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Betis_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Mata_Kaki_v2_1">
+  <inertial>
+    <origin xyz="-0.022400088385745837 0.014857427032683085 0.013338327265799386" rpy="0 0 0"/>
+    <mass value="0.1651150849038537"/>
+    <inertia ixx="0.000138" iyy="5.5e-05" izz="0.000123" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.166436 -0.054296 -0.038416" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Mata_Kaki_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.166436 -0.054296 -0.038416" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Mata_Kaki_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Kaki_Kiri_v3_1">
+  <inertial>
+    <origin xyz="0.006070058297635128 -0.023961077597017322 -0.03190923549161178" rpy="0 0 0"/>
+    <mass value="0.03856063490043197"/>
+    <inertia ixx="2.9e-05" iyy="1.2e-05" izz="3.4e-05" ixy="0.0" iyz="0.0" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.00607 -0.02396 -0.036416" rpy="0 0 0"/>
+  <geometry>
+    <box size="0.062 0.092 0.0025"/>
+  </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision name="Kaki_Kiri_v3_1">
+    <origin xyz="0.00607 -0.02396 -0.036416" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.062 0.092 0.0025"/>
+    </geometry>
+  </collision>
+</link>
+
+
+<link name="Konektor_Kepala_v5_1">
+  <inertial>
+    <origin xyz="-8.83857411287936e-08 -1.1579546355111603e-07 0.006096903708881718" rpy="0 0 0"/>
+    <mass value="0.012358301986381577"/>
+    <inertia ixx="2e-06" iyy="5e-06" izz="4e-06" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.107136 -0.042336 -0.4244" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Konektor_Kepala_v5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="red"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.107136 -0.042336 -0.4244" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Konektor_Kepala_v5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Kepala_v2_1">
+  <inertial>
+    <origin xyz="-0.02240008838574571 -1.1579546380091621e-07 0.013285733304838454" rpy="0 0 0"/>
+    <mass value="0.22680473262237913"/>
+    <inertia ixx="7.2e-05" iyy="7.8e-05" izz="5.4e-05" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.128636 -0.042336 -0.4544" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Kepala_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.128636 -0.042336 -0.4544" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find darput_description)/meshes/Kepala_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+ <!-- <link name="box_beban">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.5"/>
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.1 1.0 0.1"/>
+      </geometry>
+      <material name="simple_box_material">
+        <color rgba="1.0 0.0 0.0 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.1 1.0 0.1"/>
+      </geometry>
+    </collision>
+  </link> -->
+
+<!-- Bagian JOINT -->
+
+<!-- <joint name="base_center_to_box_beban" type="fixed">
+    <parent link="base_link"/>
+    <child link="box_beban"/>
+    <origin xyz="0 0.3 0.34" rpy="0 0 0"/>
+</joint> -->
+
+<joint name="center_to_base" type="fixed">
+  <parent link="base_link"/>
+  <child link="base_center"/>
+  <origin xyz="-0.107136 -0.050 0.0" rpy="0 0 0"/>
+</joint>
+
+<joint name="imu_joint" type="fixed">
+  <parent link="base_center"/>
+  <child link="imu_link"/>
+  <origin xyz="0.1 0.06 0.34" rpy="0 0 0"/>
+</joint>
+
+<link name="imu_link">
+  <visual>
+    <geometry>
+      <box size="0.01 0.01 0.01"/>
+    </geometry>
+    <material name="black">
+      <color rgba="0 0 0 1"/>
+    </material>
+  </visual>
+  <inertial>
+    <mass value="0.01"/>
+    <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+  </inertial>
+</link>
+
+<joint name="camera_joint" type="fixed">
+  <parent link="Kepala_v2_1"/>
+  <child link="camera_link"/>
+  <origin xyz="-0.0215 0 0.05" rpy="0 0 1.5707"/>
+</joint>
+
+<link name="camera_link">
+  <visual>
+    <geometry>
+      <box size="0.02 0.08 0.02"/>
+    </geometry>
+    <material name="black">
+      <color rgba="0 0 0 1"/>
+    </material>
+  </visual>
+  <inertial>
+    <mass value="0.01"/>
+    <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+  </inertial>
+</link>
+
+<joint name="camera_optical_joint" type="fixed">
+  <parent link="camera_link"/>
+  <child link="camera_link_optical"/>
+  <origin xyz="0 0 0" rpy="-1.5707 0 -1.5707"/>
+</joint>
+
+<link name="camera_link_optical"></link>
+
+
+<link name="End_Effector_Tangan_Kanan_1">
+  <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.001"/> <inertia ixx="0.0001" iyy="0.0001" izz="0.0001" ixy="0" iyz="0" ixz="0"/></inertial>
+  <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><box size="0.01 0.01 0.01"/> </geometry><material name="blue2"><color rgba="0 0 1 0.5"/></material></visual>
+</link>
+<link name="End_Effector_Kaki_Kanan_1">
+  <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.001"/> <inertia ixx="0.0001" iyy="0.0001" izz="0.0001" ixy="0" iyz="0" ixz="0"/></inertial>
+  <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><box size="0.01 0.01 0.01"/> </geometry><material name="blue2"><color rgba="0 0 1 0.5"/></material></visual>
+</link>
+<link name="End_Effector_Kaki_Kiri_1">
+  <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.001"/> <inertia ixx="0.0001" iyy="0.0001" izz="0.0001" ixy="0" iyz="0" ixz="0"/></inertial>
+  <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><box size="0.01 0.01 0.01"/> </geometry><material name="blue2"><color rgba="0 0 1 0.5"/></material></visual>
+</link>
+<link name="End_Effector_Tangan_Kiri_1">
+  <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.001"/> <inertia ixx="0.0001" iyy="0.0001" izz="0.0001" ixy="0" iyz="0" ixz="0"/></inertial>
+  <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><box size="0.01 0.01 0.01"/> </geometry><material name="blue2"><color rgba="0 0 1 0.5"/></material></visual>
+</link>
+
+<joint name="joint_end_effector_kanan" type="fixed">
+  <parent link="Tangan_v2__1__1"/>
+  <child link="End_Effector_Tangan_Kanan_1"/>
+  <origin xyz="0.02 0.005 -0.1" rpy="0 0 0"/> 
+</joint>
+<joint name="joint_tapak_kaki_kanan" type="fixed">
+  <parent link="Kaki_Kanan_v2_1"/>
+  <child link="End_Effector_Kaki_Kanan_1"/>
+  <origin xyz="0 -0.025 -0.0375" rpy="0 0 0"/> 
+</joint>
+<joint name="joint_tapak_kaki_kiri" type="fixed">
+  <parent link="Kaki_Kiri_v3_1"/>
+  <child link="End_Effector_Kaki_Kiri_1"/>
+  <origin xyz="0 -0.025 -0.0375" rpy="0 0 0"/>
+</joint>
+<joint name="joint_end_effector_kiri" type="fixed">
+  <parent link="Tangan_v2_1"/>
+  <child link="End_Effector_Tangan_Kiri_1"/>
+  <origin xyz="-0.02 0.005 -0.1" rpy="0 0 0"/> 
+</joint>
+
+
+<joint name="Lengan Kiri" type="revolute">
+  <origin xyz="0.163136 0.044836 0.4041" rpy="0 0 0"/>
+  <parent link="base_center"/>
+  <child link="Konektor_Lengan_v3_1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+  <dynamics damping="0.5"/>
+  <limit lower="-3.14159" upper="3.14159" effort="10" velocity="6"/>
+</joint>
+
+<joint name="Bahu Tangan Kiri" type="revolute">
+  <origin xyz="0.0284 -0.0225 -0.016" rpy="0 0 0"/>
+  <parent link="Konektor_Lengan_v3_1"/>
+  <child link="Lengan_v2_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+  <dynamics damping="0.5"/>
+  <limit lower="-3.14159" upper="3.14159" effort="10" velocity="6"/>
+</joint>
+
+<joint name="Tangan Kiri" type="revolute">
+  <origin xyz="0.0225 0.0065 -0.06455" rpy="0 0 0"/>
+  <parent link="Lengan_v2_1"/>
+  <child link="Tangan_v2_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+  <dynamics damping="0.5"/>
+  <limit lower="-3.14159" upper="3.14159" effort="10" velocity="6"/>
+</joint>
+
+<joint name="Capit Kiri" type="revolute">
+  <origin xyz="0.0 -0.008 -0.0628" rpy="0 0 0"/>
+  <parent link="Tangan_v2_1"/>
+  <child link="Capit_v2__1__1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+  <dynamics damping="0.5"/>
+  <limit lower="-3.14159" upper="3.14159" effort="10" velocity="6"/>
+</joint>
+
+<joint name="Lengan Kanan" type="revolute">
+  <origin xyz="0.051136 0.044836 0.4041" rpy="0 0 0"/>
+  <parent link="base_center"/>
+  <child link="Konektor_Lengan_v3__1__1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+  <dynamics damping="0.5"/>
+  <limit lower="-3.14159" upper="3.14159" effort="10" velocity="6"/>
+</joint>
+
+<joint name="Bahu Tangan Kanan" type="revolute">
+  <origin xyz="-0.0284 -0.0225 -0.016" rpy="0 0 0"/>
+  <parent link="Konektor_Lengan_v3__1__1"/>
+  <child link="Lengan_v2__1__1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+  <dynamics damping="0.5"/>
+  <limit lower="-3.14159" upper="3.14159" effort="10" velocity="6"/>
+</joint>
+
+<joint name="Tangan Kanan" type="revolute">
+  <origin xyz="-0.0225 0.0065 -0.06455" rpy="0 0 0"/>
+  <parent link="Lengan_v2__1__1"/>
+  <child link="Tangan_v2__1__1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+  <dynamics damping="0.5"/>
+  <limit lower="-3.14159" upper="3.14159" effort="10" velocity="6"/>
+</joint>
+
+<joint name="Capit Kanan" type="revolute">
+  <origin xyz="0.0 -0.008 -0.0628" rpy="0 0 0"/>
+  <parent link="Tangan_v2__1__1"/>
+  <child link="Capit_v2_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+  <dynamics damping="0.5"/>
+  <limit lower="-3.14159" upper="3.14159" effort="10" velocity="6"/>
+</joint>
+
+<joint name="Paha Kanan Putar" type="revolute">
+  <origin xyz="0.070136 0.051336 0.25965" rpy="0 0 0"/>
+  <parent link="base_center"/>
+  <child link="Konektor_Paha_v2_1"/>
+  <axis xyz="-0.0 0.0 -1.0"/>
+  <dynamics damping="3.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="40" velocity="6"/>
+</joint>
+
+<joint name="Paha Atas Kanan" type="revolute">
+  <origin xyz="0.0 0.026 -0.03405" rpy="0 0 0"/>
+  <parent link="Konektor_Paha_v2_1"/>
+  <child link="Paha_v6_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+  <dynamics damping="3.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="40" velocity="6"/>
+</joint>
+
+<joint name="Paha Bawah Kanan" type="revolute">
+  <origin xyz="-0.0224 -0.0205 0.0" rpy="0 0 0"/>
+  <parent link="Paha_v6_1"/>
+  <child link="Lutut_v2_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+  <dynamics damping="3.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="40" velocity="6"/>
+</joint>
+
+<joint name="Lutut Kanan" type="revolute">
+  <origin xyz="0.0001 0.0 -0.0955" rpy="0 0 0"/>
+  <parent link="Lutut_v2_1"/>
+  <child link="Betis_v2__1__1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+  <dynamics damping="3.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="40" velocity="6"/>
+</joint>
+
+<joint name="Kaki Kanan Atas" type="revolute">
+  <origin xyz="0.0 -0.00254 -0.091684" rpy="0 0 0"/>
+  <parent link="Betis_v2__1__1"/>
+  <child link="Mata_Kaki_v2__1__1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+  <dynamics damping="3.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="40" velocity="6"/>
+</joint>
+
+<joint name="Kaki Kanan Bawah" type="revolute">
+  <origin xyz="0.0224 0.0205 0.0" rpy="0 0 0"/>
+  <parent link="Mata_Kaki_v2__1__1"/>
+  <child link="Kaki_Kanan_v2_1"/>
+  <axis xyz="-0.0 -1.0 -0.0"/>
+  <dynamics damping="3.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="40" velocity="6"/>
+</joint>
+
+<joint name="Paha Kiri Putar" type="revolute">
+  <origin xyz="0.144136 0.051336 0.25965" rpy="0 0 0"/>
+  <parent link="base_center"/>
+  <child link="Konektor_Paha_v2__1__1"/>
+  <axis xyz="-0.0 0.0 -1.0"/>
+  <dynamics damping="3.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="40" velocity="6"/>
+</joint>
+
+<joint name="Paha Atas Kiri" type="revolute">
+  <origin xyz="0.0 0.026 -0.03405" rpy="0 0 0"/>
+  <parent link="Konektor_Paha_v2__1__1"/>
+  <child link="Paha_v6__1__1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+  <dynamics damping="3.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="40" velocity="6"/>
+</joint>
+
+<joint name="Paha Bawah Kiri" type="revolute">
+  <origin xyz="0.0224 -0.0205 0.0" rpy="0 0 0"/>
+  <parent link="Paha_v6__1__1"/>
+  <child link="Lutut_v2__1__1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+  <dynamics damping="3.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="40" velocity="6"/>
+</joint>
+
+<joint name="Lutut Kiri" type="revolute">
+  <origin xyz="-0.0001 0.0 -0.0955" rpy="0 0 0"/>
+  <parent link="Lutut_v2__1__1"/>
+  <child link="Betis_v2_1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+  <dynamics damping="3.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="40" velocity="6"/>
+</joint>
+
+<joint name="Kaki Kiri Atas" type="revolute">
+  <origin xyz="0.0 -0.00254 -0.091684" rpy="0 0 0"/>
+  <parent link="Betis_v2_1"/>
+  <child link="Mata_Kaki_v2_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+  <dynamics damping="3.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="40" velocity="6"/>
+</joint>
+
+<joint name="Kaki Kiri Bawah" type="revolute">
+  <origin xyz="-0.0224 0.0205 0.0" rpy="0 0 0"/>
+  <parent link="Mata_Kaki_v2_1"/>
+  <child link="Kaki_Kiri_v3_1"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+  <dynamics damping="3.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="40" velocity="6"/>
+</joint>
+
+<joint name="Leher Putar" type="revolute">
+  <origin xyz="0.107136 0.042336 0.4244" rpy="0 0 0"/>
+  <parent link="base_center"/>
+  <child link="Konektor_Kepala_v5_1"/>
+  <axis xyz="0.0 -0.0 1.0"/>
+  <dynamics damping="0.5"/>
+  <limit lower="-3.14159" upper="3.14159" effort="10" velocity="6"/>
+</joint>
+
+<joint name="Kepala Putar" type="revolute">
+  <origin xyz="0.0215 0.0 0.03" rpy="0 0 0"/>
+  <parent link="Konektor_Kepala_v5_1"/>
+  <child link="Kepala_v2_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+  <dynamics damping="0.5"/>
+  <limit lower="-3.14159" upper="3.14159" effort="10" velocity="6"/>
+</joint>
+
+
+<ros2_control name="IgnitionSystem" type="system">
+  <hardware>
+    <plugin>ign_ros2_control/IgnitionSystem</plugin>
+  </hardware>
+  
+  <joint name="Lengan Kiri"><command_interface name="position"><param name="min">-3.14159</param><param name="max">3.14159</param></command_interface><state_interface name="position"><param name="initial_value">0</param></state_interface></joint>
+  <joint name="Bahu Tangan Kiri"><command_interface name="position"><param name="min">-3.14159</param><param name="max">3.14159</param></command_interface><state_interface name="position"><param name="initial_value">0</param></state_interface></joint>
+  <joint name="Tangan Kiri"><command_interface name="position"><param name="min">-3.14159</param><param name="max">3.14159</param></command_interface><state_interface name="position"><param name="initial_value">0</param></state_interface></joint>
+  <joint name="Capit Kiri"><command_interface name="position"><param name="min">-3.14159</param><param name="max">3.14159</param></command_interface><state_interface name="position"><param name="initial_value">0</param></state_interface></joint>
+  <joint name="Lengan Kanan"><command_interface name="position"><param name="min">-3.14159</param><param name="max">3.14159</param></command_interface><state_interface name="position"><param name="initial_value">0</param></state_interface></joint>
+  <joint name="Bahu Tangan Kanan"><command_interface name="position"><param name="min">-3.14159</param><param name="max">3.14159</param></command_interface><state_interface name="position"><param name="initial_value">0</param></state_interface></joint>
+  <joint name="Tangan Kanan"><command_interface name="position"><param name="min">-3.14159</param><param name="max">3.14159</param></command_interface><state_interface name="position"><param name="initial_value">0</param></state_interface></joint>
+  <joint name="Capit Kanan"><command_interface name="position"><param name="min">-3.14159</param><param name="max">3.14159</param></command_interface><state_interface name="position"><param name="initial_value">0</param></state_interface></joint>
+  <joint name="Paha Kanan Putar"><command_interface name="position"><param name="min">-3.14159</param><param name="max">3.14159</param></command_interface><state_interface name="position"><param name="initial_value">0</param></state_interface></joint>
+  <joint name="Paha Atas Kanan"><command_interface name="position"><param name="min">-3.14159</param><param name="max">3.14159</param></command_interface><state_interface name="position"><param name="initial_value">0</param></state_interface></joint>
+  <joint name="Paha Bawah Kanan"><command_interface name="position"><param name="min">-3.14159</param><param name="max">3.14159</param></command_interface><state_interface name="position"><param name="initial_value">0</param></state_interface></joint>
+  <joint name="Lutut Kanan"><command_interface name="position"><param name="min">-3.14159</param><param name="max">3.14159</param></command_interface><state_interface name="position"><param name="initial_value">-0.2</param></state_interface></joint>
+  <joint name="Kaki Kanan Atas"><command_interface name="position"><param name="min">-3.14159</param><param name="max">3.14159</param></command_interface><state_interface name="position"><param name="initial_value">-0.2</param></state_interface></joint>
+  <joint name="Kaki Kanan Bawah"><command_interface name="position"><param name="min">-3.14159</param><param name="max">3.14159</param></command_interface><state_interface name="position"><param name="initial_value">0</param></state_interface></joint>
+  <joint name="Paha Kiri Putar"><command_interface name="position"><param name="min">-3.14159</param><param name="max">3.14159</param></command_interface><state_interface name="position"><param name="initial_value">0</param></state_interface></joint>
+  <joint name="Paha Atas Kiri"><command_interface name="position"><param name="min">-3.14159</param><param name="max">3.14159</param></command_interface><state_interface name="position"><param name="initial_value">0</param></state_interface></joint>
+  <joint name="Paha Bawah Kiri"><command_interface name="position"><param name="min">-3.14159</param><param name="max">3.14159</param></command_interface><state_interface name="position"><param name="initial_value">0</param></state_interface></joint>
+  <joint name="Lutut Kiri"><command_interface name="position"><param name="min">-3.14159</param><param name="max">3.14159</param></command_interface><state_interface name="position"><param name="initial_value">0.2</param></state_interface></joint>
+  <joint name="Kaki Kiri Atas"><command_interface name="position"><param name="min">-3.14159</param><param name="max">3.14159</param></command_interface><state_interface name="position"><param name="initial_value">0.2</param></state_interface></joint>
+  <joint name="Kaki Kiri Bawah"><command_interface name="position"><param name="min">-3.14159</param><param name="max">3.14159</param></command_interface><state_interface name="position"><param name="initial_value">0</param></state_interface></joint>
+  <joint name="Leher Putar"><command_interface name="position"><param name="min">-3.14159</param><param name="max">3.14159</param></command_interface><state_interface name="position"><param name="initial_value">0</param></state_interface></joint>
+  <joint name="Kepala Putar"><command_interface name="position"><param name="min">-3.14159</param><param name="max">3.14159</param></command_interface><state_interface name="position"><param name="initial_value">0</param></state_interface></joint>
+
+  <sensor name="imu_sensor">
+    <state_interface name="orientation.x"/>
+    <state_interface name="orientation.y"/>
+    <state_interface name="orientation.z"/>
+    <state_interface name="orientation.w"/>
+    <state_interface name="angular_velocity.x"/>
+    <state_interface name="angular_velocity.y"/>
+    <state_interface name="angular_velocity.z"/>
+    <state_interface name="linear_acceleration.x"/>
+    <state_interface name="linear_acceleration.y"/>
+    <state_interface name="linear_acceleration.z"/>
+  </sensor>
+</ros2_control>
+
+<gazebo>
+  <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+    <parameters>$(find darput_description)/config/joint_controller.yaml</parameters>
+  </plugin>
+  <self_collide>1</self_collide>
+</gazebo>
+
+<gazebo reference="imu_link">
+  <sensor name="imu_sensor" type="imu">
+    <always_on>true</always_on>
+    <update_rate>100</update_rate> 
+    <visualize>true</visualize>
+    <plugin filename="libignition-gazebo-imu-system.so" name="ignition::gazebo::systems::Imu">
+      <ros>
+        <namespace>/</namespace>
+        <remapping>~/out:=imu/data</remapping>
+      </ros>
+      <frame_name>imu_link</frame_name>
+      <initial_orientation_as_reference>false</initial_orientation_as_reference>
+    </plugin>
+    <pose>0 0 0 0 0 0</pose>
+  </sensor>
+</gazebo>
+
+<gazebo reference="camera_link">
+  <sensor name="camera" type="camera">
+    <update_rate>30.0</update_rate>
+    <always_on>true</always_on>
+    <visualize>true</visualize>
+    <plugin filename="libignition-gazebo-sensors-system.so" name="ignition::gazebo::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <topic>camera/image_raw</topic> 
+    <camera name="head">
+      <horizontal_fov>1.3962634</horizontal_fov>
+      <image>
+        <width>640</width>
+        <height>360</height>
+        <format>R8G8B8</format>
+      </image>
+      <clip>
+        <near>0.02</near>
+        <far>300</far>
+      </clip>
+    </camera>
+  </sensor>
+</gazebo>
+
+<gazebo reference="Kaki_Kanan_v2_1">
+  <sensor name="right_foot_contact" type="contact">
+    <always_on>true</always_on>
+    <update_rate>100</update_rate>
+    <contact>
+      <collision>Kaki_Kanan_v2_1_collision</collision>
+      <topic>contact_right</topic>
+    </contact>
+  </sensor>
+</gazebo>
+
+<gazebo reference="Kaki_Kiri_v3_1">
+  <sensor name="left_foot_contact" type="contact">
+    <always_on>true</always_on>
+    <update_rate>100</update_rate>
+    <contact>
+      <collision>Kaki_Kiri_v3_1_collision</collision>
+      <topic>contact_left</topic>
+    </contact>
+  </sensor>
+</gazebo>
+
+</robot>
