@@ -10,7 +10,7 @@ A bipedal robot simulation and control workspace using ROS 2 (Humble/Jazzy) and 
 - **ROS 2 Humble** (or Jazzy)
 - **Gazebo Fortress** (via `ros_gz`)
 - **Python 3.10+**
-- **Pinocchio** (`pip install pinocchio`)
+- **Pinocchio** (`pip install pin`)
 - **PyQt5** (`sudo apt install python3-pyqt5`)
 
 ## Installation
